@@ -49,17 +49,17 @@ aside::-webkit-scrollbar-thumb{background:#cddaea;border-radius:2px}
 .bubble strong{color:#1a4f8a}
 .bubble ol,.bubble ul{padding-right:20px;margin:6px 0}
 .bubble li{margin-bottom:5px}
-.next-btns{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
-.next-btn{background:#f0f5fb;border:1px solid #c2d8ee;border-radius:20px;padding:5px 13px;font-size:12px;color:#1a4f8a;cursor:pointer;font-family:inherit;font-weight:500;transition:all .15s;white-space:nowrap}
-.next-btn:hover{background:#dceaf7;border-color:#3a7fc1;transform:translateY(-1px)}
-.ibar{padding:12px 24px 16px;background:#fff;border-top:1px solid #dde6f0;display:flex;align-items:flex-end;gap:10px}
-#inp{flex:1;background:#f7f9fc;border:1.5px solid #d0dcea;border-radius:12px;padding:10px 15px;font-family:inherit;font-size:14px;color:#1a2b3c;outline:none;resize:none;height:44px;min-height:44px;max-height:130px;line-height:1.5;transition:border-color .2s,box-shadow .2s;box-shadow:0 1px 4px rgba(26,79,138,.06)}
-#inp:focus{border-color:#3a7fc1;box-shadow:0 0 0 3px rgba(58,127,193,.12);background:#fff}
-#inp::placeholder{color:#a8bfd4}
-#sbtn{width:44px;height:44px;background:linear-gradient(135deg,#1a4f8a,#2e6eb5);border:none;border-radius:12px;color:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s;box-shadow:0 2px 8px rgba(26,79,138,.25)}
-#sbtn:hover{background:linear-gradient(135deg,#2563a8,#3a7fc1);transform:translateY(-1px);box-shadow:0 4px 14px rgba(26,79,138,.35)}
+.next-btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;padding-top:12px;border-top:1px solid #eef2f7}
+.next-btn{background:#eef4fb;border:none;border-radius:20px;padding:6px 14px;font-size:12.5px;color:#1a4f8a;cursor:pointer;font-family:inherit;font-weight:500;transition:all .18s;white-space:nowrap;box-shadow:0 1px 4px rgba(26,79,138,.12)}
+.next-btn:hover{background:#d4e8f7;transform:translateY(-2px);box-shadow:0 3px 10px rgba(26,79,138,.18)}
+.ibar{padding:12px 20px 14px;background:#f8fafd;border-top:1px solid #e4edf5;display:flex;align-items:flex-end;gap:10px}
+#inp{flex:1;background:#fff;border:1.5px solid #dde6f0;border-radius:24px;padding:11px 18px;font-family:inherit;font-size:14px;color:#1a2b3c;outline:none;resize:none;height:46px;min-height:46px;max-height:130px;line-height:1.5;transition:all .2s;box-shadow:0 2px 8px rgba(26,79,138,.08)}
+#inp:focus{border-color:#3a7fc1;box-shadow:0 2px 12px rgba(26,79,138,.15);background:#fff}
+#inp::placeholder{color:#b0c8dd;font-size:13.5px}
+#sbtn{width:46px;height:46px;background:linear-gradient(135deg,#1a4f8a,#3a7fc1);border:none;border-radius:50%;color:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s;box-shadow:0 3px 12px rgba(26,79,138,.3)}
+#sbtn:hover{background:linear-gradient(135deg,#2563a8,#4a8fd1);transform:translateY(-2px) scale(1.05);box-shadow:0 5px 16px rgba(26,79,138,.4)}
 #sbtn:active{transform:translateY(0)}
-.hint{font-size:11px;color:#b0c4d8;text-align:center;margin-top:5px;letter-spacing:0.2px}
+.hint{font-size:11px;color:#c4d8e8;text-align:center;margin-top:4px;letter-spacing:0.2px;opacity:.8}
 </style>
 </head>
 <body>
@@ -121,9 +121,299 @@ aside::-webkit-scrollbar-thumb{background:#cddaea;border-radius:2px}
     </div>
   </div>
 </main>
-<script src="data.js"></script>
+<script>
+var shchafimData = [
+  {
+    id: "intake",
+    title: "אינטייק",
+    keywords: ["אינטייק","intake","מידע ראשוני","מידע","איסוף","שאלון","מילוי","טופס ראשוני"],
+    next: ["psychotherapy","consent","referral"],
+    content: [
+      "האינטייק הוא <strong>איסוף מידע ראשוני</strong> — חלק אינטגרלי מכל התערבות.",
+      "הוא נפתח <strong>אוטומטית</strong> לאחר פתיחת ההתערבות ושמירה ראשונית.",
+      "",
+      "<strong>אפשרויות מילוי:</strong>",
+      "• שימוש בשדות המובנים של המערכת",
+      "• צירוף קובץ עצמאי שלך",
+      "• ייבוא מאינטייקים קודמים שנסגרו (סטטוס 'בוצע')",
+      "",
+      "&#128161; <strong>טיפ:</strong> אם לתלמיד יש אינטייק ישן — אפשר לייבא אותו וחוסכים זמן רב."
+    ]
+  },
+  {
+    id: "psychotherapy",
+    title: "פסיכותרפיה",
+    keywords: ["פסיכותרפיה","טיפול","סדרת טיפול","פתיחת טיפול","מפגשים","סדרה","סגירת סדרה","סיכום","טיפול פרטני"],
+    next: ["consent","diagnostics","session"],
+    content: [
+      "<strong>שלב 1 — פתיחת ההתערבות:</strong>",
+      "גיליון תלמיד &#8592; לחץ 'הוספת התערבות' &#8592; בחר <strong>פסיכותרפיה</strong>",
+      "",
+      "<strong>שלב 2 — מילוי שדות חובה (כוכבית אדומה):</strong>",
+      "• <strong>סיבת פנייה:</strong> הסיבה הנוכחית הספציפית — לא ההיסטוריה",
+      "• <strong>מקור תקציבי:</strong> ברירת מחדל 'שפ\"ח בתקן'",
+      "• <strong>שייך ליחידה:</strong> קלינית = חובת תיאור סטטוס מנטלי",
+      "",
+      "<strong>שלב 3 — שמירה ואינטייק:</strong>",
+      "לחץ שמירה &#8592; נפתח מודול אינטייק &#8592; מלא אותו",
+      "",
+      "<strong>שלב 4 — הסכמה מדעת:</strong>",
+      "לחץ 'הוספת הסכמה מדעת' &#8592; בחר 'פסיכותרפיה' &#8592; שלח לפורטל הורים",
+      "המתן לחתימת ההורה — רק לאחריה ניתן לפתוח מפגשים",
+      "",
+      "<strong>שלב 5 — תיעוד מפגשים:</strong>",
+      "הוספת מפגש &#8592; מלא פרטים &#8592; לחץ 'סגירת מפגש'",
+      "&#9888;&#65039; לאחר 'סגירת מפגש' לא ניתן לערוך — רק מנהל יכול!",
+      "&#9888;&#65039; שמור לעיתים קרובות — <strong>אין שמירה אוטומטית!</strong>",
+      "",
+      "<strong>שלב 6 — סגירת הסדרה:</strong>",
+      "לחץ 'סגירת סדרה' &#8592; <strong>חובה לצרף קובץ סיכום</strong>",
+      "הסגירה מסיימת אוטומטית את ההסכמה מדעת"
+    ]
+  },
+  {
+    id: "diagnostics",
+    title: "פסיכודיאגנוסטיקה",
+    keywords: ["דיאגנוסטיקה","פסיכודיאגנוסטיקה","אבחון","אבחנה","הערכה","הערכת סיכון","אובדנות","אבחון פסיכולוגי","בדיקה","מיפוי"],
+    next: ["consent","psychotherapy","session"],
+    content: [
+      "<strong>שלב 1:</strong> גיליון תלמיד &#8592; 'הוספת התערבות' &#8592; בחר <strong>פסיכודיאגנוסטיקה</strong>",
+      "",
+      "<strong>שלב 2 — שדות חובה:</strong>",
+      "• סיבת פנייה (נוכחית וספציפית)",
+      "• מקור תקציבי",
+      "",
+      "<strong>שלב 3 — הסכמה מדעת:</strong>",
+      "'הוספת הסכמה מדעת' &#8592; בחר 'פסיכודיאגנוסטיקה' &#8592; שלח לפורטל הורים",
+      "&#9888;&#65039; אם כולל <strong>הערכת סיכון אובדני</strong> — נדרשת חתימת הורה <strong>נפרדת נוספת</strong>",
+      "",
+      "<strong>שלב 4 — תיעוד:</strong>",
+      "לאחר חתימה: הוספת מפגש &#8592; מלא &#8592; סגירת מפגש (בלתי הפיך!)",
+      "&#9888;&#65039; שמור תדיר — אין שמירה אוטומטית!",
+      "",
+      "<strong>שלב 5 — סגירת הסדרה:</strong>",
+      "• <strong>חובה לצרף קובץ</strong> — אם לא ניתן, חובה לציין סיבה בכתב",
+      "• הסגירה מסיימת את ההסכמה מדעת"
+    ]
+  },
+  {
+    id: "individual",
+    title: "התערבות פרטנית במערכת",
+    keywords: ["התערבות פרטנית","פרטנית","ישיבה","ישיבת צוות","בינמקצועית","ייעוץ","תצפית","שיחה","נייד","מובייל","ייעוץ מורה"],
+    next: ["consent","group","systemic"],
+    content: [
+      "<strong>מתי להשתמש?</strong>",
+      "• שיחות עם תלמיד שאינן טיפול",
+      "• ישיבות בינמקצועיות שגרתיות (לא ועדה רשמית!)",
+      "• תצפיות",
+      "• ייעוץ להורים שאינו טיפול בהורות",
+      "&#128241; <strong>עובד גם מהנייד!</strong>",
+      "",
+      "<strong>שלבים:</strong>",
+      "1. גיליון תלמיד &#8592; 'הוספת התערבות' &#8592; <strong>התערבות פרטנית במערכת</strong>",
+      "2. ההסכמה מפרידה בין:",
+      "&nbsp;&nbsp;&nbsp;• <strong>ישירה</strong> — שיחה עם התלמיד עצמו",
+      "&nbsp;&nbsp;&nbsp;• <strong>עקיפה</strong> — ישיבת צוות, ייעוץ להורים",
+      "3. תוקף ההסכמה: עד 3 שנים מהתערבות אחרונה באותה מסגרת",
+      "4. שכפול מפגשים: <strong>אפשרי!</strong> שימושי לסדרת ישיבות דומות",
+      "",
+      "&#9888;&#65039; ישיבה בינמקצועית שגרתית &#8800; ועדה — תעד כאן, לא תחת 'ועדה'"
+    ]
+  },
+  {
+    id: "parenting",
+    title: "טיפול בהורות",
+    keywords: ["הדרכת הורים","טיפול בהורות","הורות","הורה","טיפול הורי","ייעוץ הורים","הדרכה","הדרכת הורה"],
+    next: ["consent","individual","psychotherapy"],
+    content: [
+      "&#128161; <strong>שים לב:</strong> בשחפים המונח הוא <strong>'טיפול בהורות'</strong> — לא 'הדרכת הורים'",
+      "",
+      "<strong>מתי להשתמש?</strong>",
+      "כשהורה מבקש טיפול עבור <strong>עצמו</strong>, ללא מפגש ישיר עם התלמיד",
+      "",
+      "<strong>שלבים:</strong>",
+      "1. גיליון תלמיד &#8592; 'הוספת התערבות' &#8592; <strong>טיפול בהורות</strong>",
+      "2. ההתערבות ממוקדת בהורה אך נפתחת תחת גיליון התלמיד",
+      "3. שלח הסכמה מדעת להורה",
+      "4. לאחר חתימה — תעד מפגשים כרגיל",
+      "5. שמור לעיתים קרובות!"
+    ]
+  },
+  {
+    id: "committee",
+    title: "ועדה",
+    keywords: ["ועדה","זכאות","אפיון","ועדת זכאות","ועדת אפיון","השגה","התמדה","תכנון טיפול","רב-מקצועית","שילוב","ועדת שילוב"],
+    next: ["individual","consent","systemic"],
+    content: [
+      "&#9888;&#65039; <strong>הבחנה קריטית:</strong>",
+      "• <strong>ועדה אמיתית</strong> = גוף ממוסד לפי חוק (זכאות ואפיון, השגה, התמדה, תכנון טיפול, רב-מקצועית)",
+      "• <strong>ישיבה בינמקצועית שגרתית</strong> &#8594; תעד תחת 'התערבות פרטנית במערכת', לא כאן!",
+      "",
+      "<strong>לגבי הסכמה מדעת בוועדה:</strong>",
+      "• <strong>נוכחות בוועדה</strong> = מותרת ללא הסכמה (חוזר מנכ\"ל)",
+      "• <strong>תיעוד הוועדה בגיליון</strong> = מחייב הסכמה מדעת",
+      "",
+      "<strong>שלבים:</strong>",
+      "1. גיליון תלמיד &#8592; 'הוספת התערבות' &#8592; <strong>ועדה</strong>",
+      "2. בחר סוג ועדה מהרשימה",
+      "3. שלח הסכמה מדעת אם מתעדים",
+      "4. מלא פרטים ותעד"
+    ]
+  },
+  {
+    id: "group",
+    title: "טיפול קבוצתי",
+    keywords: ["קבוצתי","קבוצה","טיפול קבוצתי","כיתה","קבוצת ילדים","קבוצת תמיכה","עבודה קבוצתית"],
+    next: ["consent","individual","psychotherapy"],
+    content: [
+      "&#9888;&#65039; <strong>הבחנה חשובה:</strong>",
+      "• <strong>התערבות בכיתה</strong> = אין חובה לפתוח גיליון לכל תלמיד",
+      "• <strong>טיפול קבוצתי</strong> = טיפול לכל דבר — <strong>הסכמה מדעת נפרדת לכל משתתף!</strong>",
+      "",
+      "<strong>שלבים:</strong>",
+      "1. פתח מודול <strong>טיפול קבוצתי</strong> (לא מגיליון תלמיד בודד)",
+      "2. הוסף משתתפים לקבוצה",
+      "3. שלח הסכמה מדעת לכל הורה בנפרד",
+      "4. המתן לחתימות",
+      "5. תעד מפגשים קבוצתיים"
+    ]
+  },
+  {
+    id: "emergency",
+    title: "התערבות חירום",
+    keywords: ["חירום","אובדנות","סיכון","דחוף","מצוקה","אלימות","פגיעה","דגל אדום","דגלון","פגיעה עצמית","מחשבות אובדניות"],
+    next: ["consent","psychotherapy","individual"],
+    content: [
+      "<strong>מתי מגדירים חירום?</strong>",
+      "כשיש סיטואציה דחופה שמחייבת מפגש <strong>לפני</strong> שניתן לקבל הסכמה מדעת",
+      "&#128161; ההגדרה כ'חירום' היא <strong>החלטה מקצועית</strong> — מומלץ להתייעץ עם גורמים בכירים",
+      "",
+      "<strong>מה זה נותן?</strong>",
+      "• תיעוד פגישה <strong>אחת</strong> לפני הסכמה מדעת",
+      "• מסומן בדגלון אדום בגיליון ובשולחן העבודה של המנהל",
+      "• גם חשד לאובדנות = דגלון אדום",
+      "",
+      "<strong>שלבים:</strong>",
+      "1. גיליון תלמיד &#8592; 'הוספת התערבות' &#8592; <strong>התערבות חירום</strong>",
+      "2. תעד את הפגישה",
+      "3. לאחר מכן — פעל מיד לקבלת הסכמה מדעת ופתיחת התערבות מתאימה"
+    ]
+  },
+  {
+    id: "systemic",
+    title: "עבודה מערכתית",
+    keywords: ["מערכתית","עבודה מערכתית","בית ספר","גן","רשות","מסגרת","מתיא","תנועת נוער","ייעוץ מערכתי","ייעוץ לצוות"],
+    next: ["individual","referral","committee"],
+    content: [
+      "<strong>מתי?</strong> פעולה עבור מסגרת (גן, בית ספר, רשות) — לא עבור תלמיד מסוים",
+      "",
+      "<strong>יתרון מיוחד:</strong>",
+      "ניתן לרשום כאן עבודה פרטנית ללא הסכמה מדעת (בתנאים מסוימים)",
+      "לדוגמה: ייעוץ על תלמיד שמשפחתו סירבה — בראשי תיבות",
+      "",
+      "<strong>שלבים:</strong>",
+      "1. כנס לגיליון <strong>המסגרת</strong> (לא גיליון תלמיד)",
+      "2. 'הוספת עבודה מערכתית'",
+      "3. תאר פעולה, משתתפים, נושאים",
+      "",
+      "&#128161; לא חובה חוקית — אך מומלצת מאוד מקצועית"
+    ]
+  },
+  {
+    id: "consent",
+    title: "הסכמה מדעת",
+    keywords: ["הסכמה","מדעת","טופס","חתימה","הורים","אישור","פורטל","תוקף","שליחה","SMS","ביטול","תזכורת","הסכמה בעל פה","ויתור"],
+    next: ["psychotherapy","diagnostics","individual"],
+    content: [
+      "&#9878;&#65039; <strong>חובה חוקית</strong> לכל התערבות (תיקון 13 לחוק הגנת הפרטיות)",
+      "",
+      "<strong>שליחת הסכמה מדעת — שלבים:</strong>",
+      "1. גיליון תלמיד &#8592; 'הוספת הסכמה מדעת'",
+      "2. בחר סוג התערבות (ניתן לבחור כמה)",
+      "3. בחר אופן חתימה:",
+      "&nbsp;&nbsp;&nbsp;• <strong>פורטל הורים (מועדף)</strong> — SMS + מייל עם קישור לחתימה דיגיטלית",
+      "&nbsp;&nbsp;&nbsp;• <strong>קובץ סרוק</strong> — רק אם אין ברירה",
+      "4. הוסף נמען נוסף אם צריך (גרושים — שיקול דעת)",
+      "5. לחץ אישור",
+      "6. לשלוח תזכורת: לחץ 'שליחת תזכורת חתימה לנמענים'",
+      "",
+      "<strong>תוקף לפי סוג:</strong>",
+      "• <strong>פסיכותרפיה:</strong> פגה עם סגירת הסדרה",
+      "• <strong>פסיכודיאגנוסטיקה:</strong> פגה עם סגירת הסדרה",
+      "• <strong>התערבות פרטנית:</strong> עד 3 שנים, אותה מסגרת",
+      "• <strong>בעל-פה:</strong> שבועיים בלבד, 2 מפגשים, מסגרת חינוך בלבד",
+      "",
+      "<strong>ביטול הסכמה:</strong>",
+      "• ממתינה &#8594; לחץ X על ההסכמה",
+      "• פעילה &#8594; לחץ X &#8592; בחר תאריך סיום עתידי"
+    ]
+  },
+  {
+    id: "referral",
+    title: "יצירת פנייה ראשונית",
+    keywords: ["פנייה","פנייה ראשונית","תיק","פתיחת תיק","פתיחת גיליון","גיליון חדש","רישום","תלמיד חדש","איתור תלמיד"],
+    next: ["consent","intake","psychotherapy"],
+    content: [
+      "&#128161; פנייה = כל פנייה לשירות הפסיכולוגי — ניתן לתעד לפי שיקול דעת",
+      "",
+      "<strong>שלבים:</strong>",
+      "1. חפש את התלמיד (שם / ת\"ז / סמל מוסד)",
+      "2. לחץ 'יצירת פנייה'",
+      "3. מלא: שם פונה, סיבת פנייה כללית",
+      "4. שמור",
+      "",
+      "&#9888;&#65039; <strong>לפני הסכמה מדעת — רק מידע כללי!</strong> לא מידע רגיש",
+      "",
+      "• ניתן לפתוח גם ללא גיליון קיים &#8594; ייווצר גיליון בסטטוס 'מוגבל'",
+      "• ניתן להעביר לטיפול למספר אנשי מקצוע בשפ\"ח"
+    ]
+  },
+  {
+    id: "session",
+    title: "תיעוד מפגש",
+    keywords: ["מפגש","תיעוד","סגירת מפגש","רשומה","יומן","תיאור מפגש","שמירה","עריכה","תיעוד שוטף"],
+    next: ["psychotherapy","diagnostics","individual"],
+    content: [
+      "<strong>תיעוד מפגש — שלבים:</strong>",
+      "1. כנס להתערבות הפתוחה",
+      "2. לחץ 'הוספת מפגש'",
+      "3. מלא: תאריך, שעות התחלה וסיום, תיאור",
+      "4. לחץ <strong>'סגירת מפגש'</strong>",
+      "",
+      "&#9888;&#65039; <strong>חשוב מאוד:</strong>",
+      "• לאחר 'סגירת מפגש' — <strong>לא ניתן לערוך!</strong> (רק מנהל יכול)",
+      "• <strong>אין שמירה אוטומטית</strong> — לחץ שמירה תדיר",
+      "• 'אישור' בשורה &#8800; שמירה!",
+      "",
+      "&#128161; ניתן להוסיף משימות/תזכורות מתוך כל מפגש — יופיעו בשולחן העבודה"
+    ]
+  },
+  {
+    id: "ethics",
+    title: "אתיקה ואבטחת מידע",
+    keywords: ["אתיקה","אבטחה","פרטיות","מידע רגיש","אודיט","חסימה","הרשאה","מי רואה","גישה","סודיות"],
+    next: ["referral","consent","individual"],
+    content: [
+      "<strong>מי רואה מה?</strong>",
+      "כל פסיכולוג בתקן רואה את כל הגיליונות בשפ\"ח (הארגון = יחידה אחת)",
+      "",
+      "<strong>אודיט — 'טביעות רגליים':</strong>",
+      "המערכת מתעדת כניסות לשדות רגישים — כל גישה לגיליון נרשמת",
+      "",
+      "<strong>חסימת גיליון רגיש:</strong>",
+      "• ניתן להחריג תלמידים רגישים מגישת פסיכולוגים מסוימים",
+      "• <strong>רק מנהל שפ\"ח</strong> יכול לבצע זאת",
+      "",
+      "<strong>עקרון חשוב:</strong>",
+      "לפני הסכמה מדעת — כתוב <strong>רק מידע כללי</strong>, לא מידע רגיש",
+      "כל מה שנרשם לפני ההסכמה נגיש לכולם"
+    ]
+  }
+];
+</script>
 <script>
 var PREFIXES=["ו","ה","ב","ל","מ","כ","ש","של","על","את","אל","עם","כל","מה"];
+
 function stripPrefix(w){
   for(var i=0;i<PREFIXES.length;i++){
     var p=PREFIXES[i];
@@ -131,22 +421,22 @@ function stripPrefix(w){
   }
   return w;
 }
+
 function tokenize(q){
-  return q.split(/[\s,\.\-\?!\/'"\(\)]+/).filter(Boolean)
+  return q.split(/[\s,\.\-\?!\/'"()]+/).filter(Boolean)
     .map(function(w){return stripPrefix(w.trim());})
     .filter(function(w){return w.length>1;});
 }
+
 function scoreEntry(entry,tokens){
   var score=0;
   var queryFull=tokens.join(" ").toLowerCase();
-  // בדיקת התאמה מדויקת של ביטוי שלם ב-keywords -> ציון מקסימלי
   entry.keywords.forEach(function(k){
     var kl=k.toLowerCase();
-    if(kl===queryFull||queryFull===kl)score+=20;
+    if(kl===queryFull)score+=20;
     else if(queryFull.indexOf(kl)!==-1&&kl.length>=3)score+=12;
     else if(kl.indexOf(queryFull)!==-1&&queryFull.length>=3)score+=10;
   });
-  // בדיקת התאמה מדויקת של כל token ב-keywords
   tokens.forEach(function(tok){
     var t=tok.toLowerCase();
     if(t.length<2)return;
@@ -154,53 +444,52 @@ function scoreEntry(entry,tokens){
     entry.keywords.forEach(function(k){
       var kl=k.toLowerCase();
       if(kl===t){score+=10;exactKw=true;}
-      else if(kl.indexOf(t)!==-1&&t.length>=3&&!exactKw)score+=6;
-      else if(t.indexOf(kl)!==-1&&kl.length>=3&&!exactKw)score+=5;
+      else if(!exactKw&&kl.indexOf(t)!==-1&&t.length>=3)score+=6;
+      else if(!exactKw&&t.indexOf(kl)!==-1&&kl.length>=3)score+=5;
     });
-    // התאמה בכותרת
     if(entry.title.toLowerCase()===t)score+=8;
     else if(entry.title.toLowerCase().indexOf(t)!==-1&&t.length>=3)score+=4;
-    // התאמה בתוכן - משקל נמוך מאוד, רק אם token ארוך מספיק
     if(t.length>=4){
-      var inContent=entry.content.filter(function(l){return l.toLowerCase().indexOf(t)!==-1;}).length;
-      score+=inContent*0.5;
+      var hits=entry.content.filter(function(l){return l.toLowerCase().indexOf(t)!==-1;}).length;
+      score+=hits*0.5;
     }
   });
   return score;
 }
+
 function search(q){
   var tokens=tokenize(q);
   if(!tokens.length)return{top:null,suggestions:[]};
   var scored=shchafimData.map(function(e){return{entry:e,score:scoreEntry(e,tokens)};});
   scored.sort(function(a,b){return b.score-a.score;});
-  // top רק אם ציון גבוה מספיק (לפחות 5) ויש פער מספיק מהשני
   var best=scored[0].score;
   var second=scored.length>1?scored[1].score:0;
   var top=null;
-  if(best>=5){
-    // אם הפער קטן מאוד (פחות מ-2) ושניהם נמוכים — אל תנחש
-    if(best>=10||(best>=5&&best-second>=2))top=scored[0].entry;
-  }
+  if(best>=10||(best>=5&&best-second>=2))top=scored[0].entry;
   var suggestions=scored.slice(0,4).filter(function(s){return s.score>=2;}).map(function(s){return s.entry;});
   return{top:top,suggestions:suggestions};
 }
+
 function getById(id){
   for(var i=0;i<shchafimData.length;i++){if(shchafimData[i].id===id)return shchafimData[i];}
   return null;
 }
+
 function rsz(el){el.style.height="44px";el.style.height=Math.min(el.scrollHeight,130)+"px";}
-function onkey(e){if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();doSend();}
+function onkey(e){if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();doSend();}}
 function esc(t){return t.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+
 function makeNextBtns(ids){
   if(!ids||!ids.length)return "";
   var html='<div class="next-btns">';
   ids.forEach(function(id){
     var e=getById(id);
-    if(e)html+='<button class="next-btn" onclick="showTopic(\"'+id+'\")">'+e.title+'</button>';
+    if(e)html+='<button class="next-btn" data-id="'+id+'">'+e.title+'</button>';
   });
   html+="</div>";
   return html;
 }
+
 function addMsg(role,html){
   var w=document.getElementById("msgs");
   var d=document.createElement("div");
@@ -209,6 +498,7 @@ function addMsg(role,html){
   w.appendChild(d);
   w.scrollTop=w.scrollHeight;
 }
+
 function showTopic(id){
   var entry=getById(id);
   if(!entry)return;
@@ -218,7 +508,16 @@ function showTopic(id){
   html+=makeNextBtns(entry.next);
   addMsg("bot",html);
 }
+
 function ask(q){document.getElementById("inp").value=q;doSend();}
+
+document.addEventListener("click",function(e){
+  if(e.target.classList.contains("next-btn")){
+    var id=e.target.getAttribute("data-id");
+    if(id)showTopic(id);
+  }
+});
+
 function doSend(){
   var el=document.getElementById("inp");
   var q=el.value.trim();
@@ -236,7 +535,7 @@ function doSend(){
     if(result.suggestions.length){
       fb+='<div class="next-btns">';
       result.suggestions.forEach(function(e){
-        fb+='<button class="next-btn" onclick="showTopic(\"'+e.id+'\")">'+e.title+"</button>";
+        fb+='<button class="next-btn" data-id="'+e.id+'">'+e.title+'</button>';
       });
       fb+="</div>";
     } else {
@@ -244,7 +543,6 @@ function doSend(){
     }
     addMsg("bot",fb);
   }
-}
 }
 </script>
 </body>
