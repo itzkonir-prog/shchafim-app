@@ -1,3 +1,6 @@
+הנה התוכן המלא:
+
+```javascript
 var shchafimData = [
   {
     id: "intake",
@@ -286,3 +289,4 @@ var shchafimData = [
     ]
   }
 ];
+```
