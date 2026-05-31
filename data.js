@@ -1,5 +1,3 @@
-הנה התוכן המלא:
-
 ```javascript
 var shchafimData = [
   {
